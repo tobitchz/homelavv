@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homelab Monitor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="page-frame">
+        <div class="topbar">
+          <span>MONITOR HOMELAB</span>
+          <span>v1.0</span>
+        </div>
+
+        <header class="hero">
+          <div>
+            <h1>Monitor de Homelab</h1>
+          </div>
+          <button id="refreshButton" class="refresh-btn">Actualizar</button>
+        </header>
+
+        <section class="status-card">
+          <div>
+            <h2>Estado del servicio</h2>
+            <p id="serviceStatus">Comprobando conexión…</p>
+          </div>
+          <div class="pill" id="deviceCount">0 dispositivos</div>
+        </section>
+
+        <section class="system-card">
+          <div class="system-header">
+            <h2>Arquitectura distribuida</h2>
+            <span id="clusterStatus">cluster ready</span>
+          </div>
+          <div class="system-grid">
+            <div class="system-box">
+              <h3>MQTT Broker</h3>
+              <p id="mqttStatus">offline</p>
+            </div>
+            <div class="system-box">
+              <h3>API Server</h3>
+              <p id="apiStatus">offline</p>
+            </div>
+            <div class="system-box">
+              <h3>Frontend</h3>
+              <p id="frontendStatus">offline</p>
+            </div>
+          </div>
+          <div class="system-meta">
+            <span id="healthyDevices">0 nodos saludables</span>
+            <span id="staleDevices">0 nodos en riesgo</span>
+            <span id="lastHeartbeat">sin heartbeat</span>
+          </div>
+        </section>
+
+        <section class="table-card">
+          <div class="table-header">
+            <h2>Dispositivos monitoreados</h2>
+            <span id="lastUpdated">Sin datos aún</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Dispositivo</th>
+                <th>CPU</th>
+                <th>Memoria</th>
+                <th>Disco</th>
+                <th>Recibido</th>
+              </tr>
+            </thead>
+            <tbody id="devicesTableBody">
+              <tr>
+                <td colspan="5" class="empty-state">Esperando métricas…</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
